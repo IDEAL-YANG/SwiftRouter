@@ -15,18 +15,29 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.routeButton.addTarget(self, action: #selector(doRoute), for: UIControlEvents.touchDown)
-        self.clearButton.addTarget(self, action: #selector(doClear), for: UIControlEvents.touchDown)
+        self.routeButton.addTarget(self, action: #selector(doRoute), for: UIControl.Event.touchDown)
+        self.clearButton.addTarget(self, action: #selector(doClear), for: UIControl.Event.touchDown)
         // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    func doRoute() {
-        if let url = self.textField.text {
-            try? Router.shared.routeURL(url, navigationController: self.navigationController!)
+        
+        let router = Router.shared
+        router.map("/user/:userId", controllerClass: UserViewController.self)
+        router.map("/user/add") { (params:[String:String]?) -> (Bool) in
+            if let params = params {
+                print("\(String(describing: params["username"]))")
+                print("\(String(describing: params["password"]))")
+            }
+            return true
         }
     }
 
-    func doClear() {
+    @objc func doRoute() {
+        if let url = self.textField.text {
+//            try? Router.shared.routeURL(url, navigationController: self.navigationController!)
+            try? Router.shared.routeURL(url)
+        }
+    }
+
+    @objc func doClear() {
         self.textField.text = ""
     }
 

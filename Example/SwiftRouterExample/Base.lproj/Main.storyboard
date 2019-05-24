@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fPj-I0-q9d">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fPj-I0-q9d">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,30 +18,45 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBE-oM-Sni">
-                                <rect key="frame" x="61" y="150" width="33" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBE-oM-Sni">
+                                <rect key="frame" x="61" y="242.5" width="33" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W9p-AV-uXf">
-                                <rect key="frame" x="114" y="146" width="168" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W9p-AV-uXf">
+                                <rect key="frame" x="123" y="238" width="168" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="XfI-oD-Ze8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXC-U8-0rz">
-                                <rect key="frame" x="83" y="231" width="40" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXC-U8-0rz">
+                                <rect key="frame" x="83" y="323" width="40" height="30"/>
                                 <state key="normal" title="Route"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iY8-zh-nC6">
-                                <rect key="frame" x="197" y="231" width="36" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iY8-zh-nC6">
+                                <rect key="frame" x="197" y="323" width="36" height="30"/>
                                 <state key="normal" title="Clear"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92788130040000005" green="0.8143773675" blue="0.65075927970000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iY8-zh-nC6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CXC-U8-0rz" secondAttribute="trailing" constant="8" symbolic="YES" id="DMh-jw-ksp"/>
+                            <constraint firstItem="QBE-oM-Sni" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="61" id="NVS-Ai-UTy"/>
+                            <constraint firstItem="CXC-U8-0rz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="63" id="g44-nk-eh8"/>
+                            <constraint firstItem="W9p-AV-uXf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="gso-Ip-LFe"/>
+                            <constraint firstItem="W9p-AV-uXf" firstAttribute="centerY" secondItem="QBE-oM-Sni" secondAttribute="centerY" id="lDJ-hp-40R"/>
+                            <constraint firstItem="W9p-AV-uXf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QBE-oM-Sni" secondAttribute="trailing" symbolic="YES" id="nAU-Nf-sfZ"/>
+                            <constraint firstAttribute="trailing" secondItem="iY8-zh-nC6" secondAttribute="trailing" constant="181" id="nCW-ZX-scf"/>
+                            <constraint firstItem="W9p-AV-uXf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qr4-Rc-0rG"/>
+                            <constraint firstItem="CXC-U8-0rz" firstAttribute="top" secondItem="W9p-AV-uXf" secondAttribute="bottom" constant="55" id="uK4-ee-eXA"/>
+                            <constraint firstItem="CXC-U8-0rz" firstAttribute="baseline" secondItem="iY8-zh-nC6" secondAttribute="baseline" id="xGo-26-L6Z"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cns-9K-kP0"/>
                     <connections>
@@ -47,14 +67,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="38"/>
+            <point key="canvasLocation" x="570" y="38"/>
+        </scene>
+        <!--Story View Controller-->
+        <scene sceneID="6g5-QO-7BC">
+            <objects>
+                <viewController storyboardIdentifier="StoryViewController" id="6GD-sw-zDQ" customClass="StoryViewController" customModule="SwiftRouterExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RQv-f3-w7n"/>
+                        <viewControllerLayoutGuide type="bottom" id="KXq-lB-agD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iHC-Dl-52l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L9o-Vz-gpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1642" y="-36"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ykN-Mg-ERn">
             <objects>
                 <navigationController id="fPj-I0-q9d" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v6Q-z3-dex">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
