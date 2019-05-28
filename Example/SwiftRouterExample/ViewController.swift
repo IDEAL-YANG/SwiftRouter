@@ -32,8 +32,8 @@ class ViewController: UIViewController {
 
     @objc func doRoute() {
         if let url = self.textField.text {
-//            try? Router.shared.routeURL(url, navigationController: self.navigationController!)
-            try? Router.shared.routeURL(url)
+            try? Router.shared.routeURL(url, navigationController: self.navigationController!)
+//            try? Router.shared.routeURL(url)
         }
     }
 

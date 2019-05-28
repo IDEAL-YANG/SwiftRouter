@@ -21,12 +21,17 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>com.byskyline.SwiftRouter</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>testScheme</string>
+				<string>testscheme</string>
+				<string>hahascheme</string>
 			</array>
+			<key>name</key>
+			<string>liu</string>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>

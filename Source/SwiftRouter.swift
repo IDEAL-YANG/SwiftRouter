@@ -12,9 +12,9 @@ import UIKit
 var appUrlSchemes: [String] = {
     if let info: [String:AnyObject] = Bundle.main.infoDictionary as [String : AnyObject]? {
         var schemes = [String]()
-        if let url = info["CFBundleURLTypes"] as? [[String:AnyObject]]?, url != nil {
-            for d in url! {
-                if let scheme = (d["CFBundleURLSchemes"] as? [String])?[0] {
+        if let urlTypes = info["CFBundleURLTypes"] as? [[String:AnyObject]] {
+            for urlType in urlTypes {
+                if let scheme = (urlType["CFBundleURLSchemes"] as? [String])?.first {
                     schemes.append(scheme)
                 }
             }
@@ -69,7 +69,7 @@ extension RouteEntry: CustomStringConvertible, CustomDebugStringConvertible {
             return "\(self.pattern ?? empty) -> \(k)"
         }
         if let h = self.handler {
-            return "\(self.pattern ?? empty) -> \(h)"
+            return "\(self.pattern ?? empty) -> \(String(describing: h))"
         }
         return RouterError.invalidRouteEntry.description
     }
@@ -205,7 +205,7 @@ open class Router {
     fileprivate func paramsInRoute(_ route: String) throws -> [String: String] {
 
         var params = [String:String]()
-        _ = try findRouteEntry(route.stringByFilterAppSchemes(), params: &params)
+        _ = try findRouteEntry(route, params: &params)
 
         if let loc = route.range(of: "?") {
             let paramsString = String(route[route.index(after: loc.lowerBound)...])
@@ -240,13 +240,15 @@ open class Router {
     }
 
     open func routeURL(_ route: String) throws {
-        let handler = try matchHandler(route)
-        let params = try paramsInRoute(route)
+        let filter = route.stringByFilterAppSchemes()
+        let handler = try matchHandler(filter)
+        let params = try paramsInRoute(filter)
         _ = handler(params)
     }
 
     open func routeURL(_ route: String, navigationController: UINavigationController) throws {
-        if let vc = try matchController(route) as? UIViewController {
+        let filter = route.stringByFilterAppSchemes()
+        if let vc = try matchController(filter) as? UIViewController {
             navigationController.pushViewController(vc, animated: true)
         } else {
             throw RouterError.invalidRouteEntry

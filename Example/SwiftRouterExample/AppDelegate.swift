@@ -43,3 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+extension AppDelegate {
+    
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        print("url:\(url)")
+        if let nav = self.window?.rootViewController as? UINavigationController {
+            try? Router.shared.routeURL(url.absoluteString, navigationController: nav)
+        }
+        return true
+    }
+}
